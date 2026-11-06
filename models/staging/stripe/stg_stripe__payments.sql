@@ -1,3 +1,5 @@
+with payments as (
+
 SELECT 
         id as payment_id,
         orderid as order_id,
@@ -7,3 +9,6 @@ SELECT
         created as created_at,
         _batched_at
 FROM {{source('stripe', 'payments')}}
+)
+
+select * from payments
